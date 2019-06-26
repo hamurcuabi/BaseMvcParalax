@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace BaseMvcParalax.Controllers
 {
-    public class HomeController : Controller
+    public class ThankYouController : Controller
     {
-        // GET: Home
+        // GET: ThankYou
         public ActionResult Index()
         {
             return View();

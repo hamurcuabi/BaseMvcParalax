@@ -23,5 +23,6 @@ namespace BaseMvcParalax
             BundleTable.EnableOptimizations = true;
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+     
     }
 }

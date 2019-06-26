@@ -1,35 +1,49 @@
-﻿@model BaseMvcParalax.SliderText
+﻿@model BaseMvcParalax.TopSlider
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    ViewBag.TopTitle = "Slider Text Alanı - Oluştur";
-
+    ViewBag.TopTitle = "TopSlider - Oluştur";
 }
 
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "TopSliders", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.MainText, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Image, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MainText, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MainText, "", new { @class = "text-danger" })
+                <input name="Image" type="file" accept=".jpeg,.png,.jpg" />
+                @Html.ValidationMessageFor(model => model.Image)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TopText, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.TopText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TopText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MiddleText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MiddleText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MiddleText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BottomText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BottomText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BottomText, "", new { @class = "text-danger" })
             </div>
         </div>
 

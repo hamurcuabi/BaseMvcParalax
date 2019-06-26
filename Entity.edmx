@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BaseMvcParalaxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BaseMvcParalaxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ContactUs">
           <Key>
             <PropertyRef Name="Id" />
@@ -44,6 +44,7 @@
           <Property Name="Image" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Header" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Sort" Type="tinyint" Nullable="false" />
           <Property Name="Visible" Type="bit" Nullable="false" />
         </EntityType>
@@ -99,8 +100,7 @@
           <EntitySet Name="SliderText" EntityType="Self.SliderText" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TopSlider" EntityType="Self.TopSlider" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BaseMvcParalaxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -145,6 +145,7 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Sort" Type="Byte" Nullable="false" />
           <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -241,6 +242,7 @@
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="BaseMvcParalaxModel.Project">
               <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Header" ColumnName="Header" />

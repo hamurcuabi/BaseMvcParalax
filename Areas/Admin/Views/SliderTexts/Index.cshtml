@@ -2,51 +2,68 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.TopTitle = "Slider Text Alanı - Liste";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MainText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sort)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Visible)
-        </th>
-        <th></th>
-    </tr>
+<h3>
+    
+    @Html.ActionLink("Yeni Ekle", "Create",null,null, new { @class = "btn btn-dark" })
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sort)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Visible)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+</h3>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Ana Yazı
+            </th>
+            <th>
+                Yazar
+            </th>
+            <th>
+                Sıra
+            </th>
+            <th>
+                Görünürlük
+            </th>
+            <th>
+                Düzenle
+            </th>
+            <th>
+                Detay
+            </th>
+            <th>
+                Sil
+            </th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MainText)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sort)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visible)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", null, new { id = item.Id }, new { @class = "btn btn-primary" })
+                </td>
+                <td>
+                    @Html.ActionLink("Detay", "Details", null, new { id = item.Id }, new { @class = "btn btn-info" })
+                </td>
+                <td>
+                    @Html.ActionLink("Sil", "Delete", null, new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BaseMvcParalax.TopSlider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create", null, null, new { @class = "btn btn-dark" })
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+           Resim
+        </th>
+        <th>
+          Anayazı
+        </th>
+        <th>
+            Orta Yazı
+        </th>
+        <th>
+            Alt Yazı
+        </th>
+        <th>
+           Sıra
+        </th>
+        <th>
+          Görünürlük
+        </th>
+        <th>
+            Düzenle
+        </th>
+        <th>
+            Detay
+        </th>
+        <th>
+            Sil
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        <img src="@item.Image" style="width: auto;height: 80px" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TopText)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MiddleText)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BottomText)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sort)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Visible)
+    </td>
+    <td>
+        @Html.ActionLink("Düzenle", "Edit", null, new { id = item.Id }, new { @class = "btn btn-primary" })
+    </td>
+    <td>
+        @Html.ActionLink("Detay", "Details", null, new { id = item.Id }, new { @class = "btn btn-info" })
+    </td>
+    <td>
+        @Html.ActionLink("Sil", "Delete", null, new { id = item.Id }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+}
+
+</table>

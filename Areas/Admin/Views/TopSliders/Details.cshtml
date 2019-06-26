@@ -1,0 +1,69 @@
+﻿@model BaseMvcParalax.TopSlider
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.TopTitle = "TopSlider - Detay";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+        
+            <img src="@Model.Image" style="width: auto;height: 80px" />
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiddleText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiddleText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BottomText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BottomText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Geri Dön", "Index", null, null, new { @class = "btn btn-danger" })
+</p>

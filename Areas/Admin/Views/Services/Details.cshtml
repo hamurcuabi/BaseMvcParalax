@@ -1,30 +1,37 @@
-﻿@model BaseMvcParalax.SliderText
+﻿@model BaseMvcParalax.Service
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    ViewBag.TopTitle = "Slider Text Alanı - Detay";
+    ViewBag.TopTitle = "Servisler Alanı - Detay";
 }
-
 
 
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.MainText)
+            @Html.DisplayNameFor(model => model.Header)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MainText)
+            @Html.DisplayFor(model => model.Header)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Author)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Author)
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Icon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Icon)
         </dd>
 
         <dt>
@@ -46,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id },new { @class = "btn btn-primary" }) 
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
     @Html.ActionLink("Geri Dön", "Index", null, null, new { @class = "btn btn-danger" })
 </p>
