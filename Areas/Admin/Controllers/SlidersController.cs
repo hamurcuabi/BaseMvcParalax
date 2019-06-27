@@ -15,6 +15,7 @@ using BaseMvcParalax.Helper;
 
 namespace BaseMvcParalax.Areas.Admin.Controllers
 {
+    [Authorize]
     public class SlidersController : Controller
     {
         private BaseMvcParalaxEntities db = new BaseMvcParalaxEntities();

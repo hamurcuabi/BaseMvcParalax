@@ -10,6 +10,7 @@ using BaseMvcParalax;
 
 namespace BaseMvcParalax.Areas.Admin.Controllers
 {
+    [Authorize]
     public class SliderTextsController : Controller
     {
         private BaseMvcParalaxEntities db = new BaseMvcParalaxEntities();
