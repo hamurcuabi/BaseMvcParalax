@@ -3,7 +3,7 @@
 <head>
 
     <!-- Basic -->
-    <meta lang="tr-TR"/>
+    <meta lang="tr-TR" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -123,107 +123,37 @@
 
     <script src="~/Template/master/analytics/analytics.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhpYHdYRY2U6V_VfyyNtkPHhywLjDkhfg"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVSokwUUBQDvo-i-1444770Q8ZDCVlN5U"></script>
     <script>
-        /*
-                        Map Settings
+  
 
-                            Find the Latitude and Longitude of your address:
-                                - https://www.latlong.net/
-                                - http://www.findlatitudeandlongitude.com/find-address-from-latitude-and-longitude/
+        // The location of Uluru
+        var uluru = { lat: 36.427233552488076, lng: 36.27282734999994 };
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('googlemaps'), { zoom: 8, center: uluru });
+        // The marker, positioned at Uluru
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h4 id="firstHeading" class="firstHeading">Başlık</h4>'+
+            '<div id="bodyContent">'+
+            '<p>İçerik</p>'+
+            '</div>'+
+            '</div>';
 
-                        */
-
-        // Map Markers
-        var mapMarkers = [{
-            address: "Hatay",
-            html: "<strong>Ofis adı</strong><br>Hatay, adress<br><br><a href='#' onclick='mapCenterAt({latitude: 36.223413843737674, longitude: 36.223413843737674, zoom: 16}, event)'>[+] yakınlaştır</a>",
-            icon: {
-                image: "../Template/img/pin.png",
-                iconsize: [26, 46],
-                iconanchor: [12, 46]
-            }
-        }];
-        // Map Initial Location
-        var initLatitude = 36.223413843737674;
-        var initLongitude = 36.223413843737674;
-
-        // Map Extended Settings
-        var mapSettings = {
-            controls: {
-                draggable: (($.browser.mobile) ? false : true),
-                panControl: true,
-                zoomControl: true,
-                mapTypeControl: true,
-                scaleControl: true,
-                streetViewControl: true,
-                overviewMapControl: true
-            },
-            scrollwheel: false,
-            markers: mapMarkers,
-            latitude: initLatitude,
-            longitude: initLongitude,
-            zoom: 8
-        };
-
-        var map = $('#googlemaps').gMap(mapSettings),
-            mapRef = $('#googlemaps').data('gMap.reference');
-
-        // Map text-center At
-        var mapCenterAt = function (options, e) {
-            e.preventDefault();
-            $('#googlemaps').gMap("centerAt", options);
-        }
-
-        // Styles from https://snazzymaps.com/
-        var styles = [
-            {
-                "featureType": "administrative",
-                "elementType": "labels.text",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.station.rail",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "visibility": "simplified"
-                    },
-                    {
-                        "saturation": "-100"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            }
-        ];
-
-        var styledMap = new google.maps.StyledMapType(styles, {
-            name: 'Styled Map'
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
         });
 
-        mapRef.mapTypes.set('map_style', styledMap);
-        mapRef.setMapTypeId('map_style');</script>
+        var marker = new google.maps.Marker({ position: uluru, map: map,title: 'Başlık' });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+
+       
+
+    </script>
 
 
 

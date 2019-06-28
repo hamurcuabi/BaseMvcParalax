@@ -11,10 +11,10 @@ namespace BaseMvcParalax.Helper
     {
         public static List<Languages> AvailableLanguages = new List<Languages> {
             new Languages {
-                LanguageFullName = "English", LanguageCultureName = "en"
+                LanguageFullName = "EN", LanguageCultureName = "en"
             },
             new Languages {
-                LanguageFullName = "Türkçe", LanguageCultureName = "tr"
+                LanguageFullName = "TR", LanguageCultureName = "tr"
             },
           
         };
