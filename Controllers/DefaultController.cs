@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
@@ -40,13 +41,24 @@ namespace BaseMvcParalax.Controllers
                 
                 db.Mails.Add(mail);
                 db.SaveChanges();
-                //SmtpClient client = new SmtpClient();
-                //MailMessage mailMessage = new MailMessage();
-                //mailMessage.From = new MailAddress("someone@somewhere.com");
-                //mailMessage.To.Add("someone.else@somewhere-else.com");
-                //mailMessage.Subject = "Hello There";
-                //mailMessage.Body = "Hello my friend!";
-                //client.Send(mailMessage);
+                
+
+                SmtpClient client = new SmtpClient();
+                client.Port = 587;
+                client.Host = "smtp.live.com";
+                client.EnableSsl = true;
+                NetworkCredential SMTPUserInfo = new System.Net.NetworkCredential("", "");
+             
+                client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = SMTPUserInfo;
+
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress(mail.Email);
+                mailMessage.To.Add("emirogs1@gmail.com");
+                mailMessage.Subject = "Hello There";
+                mailMessage.Body = "Hello my friend!";
+                client.Send(mailMessage);
                 return RedirectToAction("Index", "ThankYou");
 
             }
