@@ -1,0 +1,74 @@
+﻿@model BaseMvcParalax.TopSlider
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.TopTitle = "TopSlider - Silme";
+}
+
+    <h3 class="alert alert-danger" role="alert">Silmek istediğinize Emin misiniz?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+
+                <img src="@Model.Image" style="width: auto;height: 80px" />
+
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TopText)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TopText)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MiddleText)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MiddleText)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BottomText)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BottomText)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sort)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sort)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Visible)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Visible)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" class="btn btn-primary" />
+                @Html.ActionLink("Geri Dön", "Index", null, null, new { @class = "btn btn-danger" })
+            </div>
+        }
+    </div>
